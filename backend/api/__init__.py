@@ -16,7 +16,7 @@ app = FastAPI(
 
 app.include_router(v1, prefix="/api")
 
-# 可以不要
+# redis进行用户数据存储
 # @app.on_event("startup")
 # async def startup():
 #     """aioredis"""
@@ -56,6 +56,7 @@ app.add_middleware(
 register_tortoise(
     app,
     db_url="sqlite://menber_management.db",
+    # db_url="mysql://root:root@192.168.87.132:3306/gccisc?charset=utf8mb4",
     modules={"models": ["models"]},
     generate_schemas=True,
     add_exception_handlers=True,

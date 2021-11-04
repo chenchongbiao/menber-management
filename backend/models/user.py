@@ -11,4 +11,7 @@ class User(models.Model):
     wechat = fields.CharField(max_length=50, null=True, description="微信号")
     phone = fields.CharField(max_length=11, null=True, description="电话")
     email = fields.CharField(max_length=20, null=True, description="邮箱")
+    create_at = fields.DatetimeField(description="创建时间")
+    update_at = fields.DatetimeField(description="更新时间")
+    delete_at = fields.DatetimeField(description="删除时间")
 

@@ -7,6 +7,12 @@ class Admin(models.Model):
     username = fields.CharField(max_length=20, null=False, description="账号")
     password = fields.CharField(max_length=128, null=False, description="密码")
     nickname = fields.CharField(max_length=20, null=True, description="昵称", default="管理员")
+    email = fields.CharField(max_length=30, null=True, description="邮箱")
+    role = fields.CharField(max_length=20, null=True, description="角色")
+    remark = fields.CharField(max_length=50, null=True, description="备注")
+    create_at = fields.DatetimeField(description="创建时间")
+    update_at = fields.DatetimeField(description="更新时间")
+    delete_at = fields.DatetimeField(description="删除时间")
 
     async def save(
             self,
